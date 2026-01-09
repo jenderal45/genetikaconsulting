@@ -1,15 +1,262 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Genetika Consulting</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Genetika Consulting</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f4f7fb;
+    color:#1e293b;
+    scroll-behavior:smooth;
+}
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* NAVBAR */
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(10px);
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    z-index:100;
+}
+.nav-wrapper{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 0;
+}
+.logo{
+    font-size:22px;
+    font-weight:700;
+    color:#2563eb;
+}
+.nav-menu{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+.nav-menu a{
+    text-decoration:none;
+    color:#334155;
+    font-weight:500;
+    transition:.3s;
+}
+.nav-menu a:hover{
+    color:#2563eb;
+}
+.btn-nav{
+    background:linear-gradient(135deg,#2563eb,#38bdf8);
+    color:white;
+    padding:8px 18px;
+    border-radius:30px;
+}
+.hamburger{
+    display:none;
+    font-size:26px;
+    cursor:pointer;
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    background:linear-gradient(135deg,#2563eb,#38bdf8);
+    display:flex;
+    align-items:center;
+    padding-top:90px;
+}
+.hero-card{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+    border-radius:30px;
+    padding:60px 40px;
+    text-align:center;
+    color:white;
+    box-shadow:0 30px 80px rgba(0,0,0,.25);
+}
+.hero h1{
+    font-size:42px;
+    margin-bottom:20px;
+}
+.hero p{
+    font-size:18px;
+    opacity:.9;
+    margin-bottom:30px;
+}
+.hero-btn a{
+    display:inline-block;
+    margin:10px;
+    padding:14px 30px;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+.btn-primary{
+    background:white;
+    color:#2563eb;
+}
+.btn-primary:hover{
+    transform:translateY(-4px);
+}
+.btn-outline{
+    border:2px solid white;
+    color:white;
+}
+.btn-outline:hover{
+    background:white;
+    color:#2563eb;
+}
+
+/* SECTION */
+section{
+    padding:100px 0;
+}
+h2{
+    text-align:center;
+    font-size:36px;
+    margin-bottom:60px;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:30px;
+}
+.card,.service-card,.blog-card{
+    background:white;
+    padding:35px 30px;
+    border-radius:25px;
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
+    transition:.4s;
+    text-align:center;
+}
+.card:hover,.service-card:hover,.blog-card:hover{
+    transform:translateY(-12px) scale(1.02);
+}
+
+/* ABOUT */
+.about p{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+    font-size:18px;
+    line-height:1.8;
+    margin-bottom:40px;
+}
+.accordion{
+    max-width:800px;
+    margin:auto;
+}
+.acc-item{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+.acc-title{
+    padding:20px;
+    background:linear-gradient(135deg,#2563eb,#38bdf8);
+    color:white;
+    cursor:pointer;
+    font-weight:600;
+}
+.acc-content{
+    padding:25px;
+    display:none;
+}
+.acc-content.show{
+    display:block;
+}
+
+/* GALLERY */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+.gallery img{
+    width:100%;
+    border-radius:20px;
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+    transition:.4s;
+}
+.gallery img:hover{
+    transform:scale(1.08) rotate(1deg);
+}
+
+/* CONTACT */
+.contact form{
+    max-width:550px;
+    margin:auto;
+    display:grid;
+    gap:18px;
+}
+input,textarea{
+    padding:14px 18px;
+    border-radius:14px;
+    border:1px solid #cbd5e1;
+    font-size:15px;
+}
+button{
+    border:none;
+    cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .nav-menu{
+        display:none;
+        position:absolute;
+        top:75px;
+        right:20px;
+        background:white;
+        flex-direction:column;
+        padding:25px;
+        border-radius:20px;
+        box-shadow:0 20px 40px rgba(0,0,0,.15);
+    }
+    .nav-menu.active{
+        display:flex;
+    }
+    .hamburger{
+        display:block;
+    }
+    .hero h1{
+        font-size:28px;
+    }
+    h2{
+        font-size:28px;
+    }
+}
+</style>
 </head>
+
 <body>
 
 <header class="navbar">
@@ -22,7 +269,7 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#portfolio">Gallery</a></li>
                 <li><a href="#blog">Blog</a></li>
-                <li><a href="#contact" class="btn">Contact</a></li>
+                <li><a href="#contact" class="btn-nav">Contact</a></li>
             </ul>
             <div class="hamburger">☰</div>
         </nav>
@@ -31,37 +278,27 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
-    <div class="container hero-content">
-        <h1>Solusi Pengembangan SDM, Pendidikan & Genetic Personality Assessment</h1>
-        <p>Genetika Consulting hadir untuk membantu institusi dan individu menjadi versi terbaik mereka.</p>
-        <div class="hero-btn">
-            <a href="#services" class="btn-primary">Lihat Layanan</a>
-            <a href="#contact" class="btn-outline">Hubungi Kami</a>
+    <div class="container">
+        <div class="hero-card">
+            <h1>Solusi Pengembangan SDM, Pendidikan & Genetic Personality Assessment</h1>
+            <p>Genetika Consulting hadir membantu institusi dan individu menjadi versi terbaik mereka.</p>
+            <div class="hero-btn">
+                <a href="#services" class="btn-primary">Lihat Layanan</a>
+                <a href="#contact" class="btn-outline">Hubungi Kami</a>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- WHY US -->
-<section class="why">
+<!-- WHY -->
+<section>
     <div class="container">
         <h2>Why Choose Us</h2>
         <div class="grid">
-            <div class="card">
-                <h3>Edukasi Terbaik</h3>
-                <p>Seluruh elemen pendidikan dan pengajaran kami rancang agar klien memperoleh hasil terbaik.</p>
-            </div>
-            <div class="card">
-                <h3>Fasilitator Terbaik</h3>
-                <p>Trainer profesional dengan kompetensi dan pengalaman terbaik.</p>
-            </div>
-            <div class="card">
-                <h3>Layanan Terbaik</h3>
-                <p>Standar layanan terbaik di setiap aspek kegiatan kami.</p>
-            </div>
-            <div class="card">
-                <h3>Tempat Strategis</h3>
-                <p>Lokasi pelatihan selalu strategis dan nyaman.</p>
-            </div>
+            <div class="card"><h3>Edukasi Terbaik</h3><p>Program pendidikan berkualitas tinggi.</p></div>
+            <div class="card"><h3>Fasilitator Profesional</h3><p>Trainer berpengalaman dan tersertifikasi.</p></div>
+            <div class="card"><h3>Layanan Premium</h3><p>Standar layanan terbaik.</p></div>
+            <div class="card"><h3>Lokasi Strategis</h3><p>Training nyaman dan representatif.</p></div>
         </div>
     </div>
 </section>
@@ -69,31 +306,23 @@
 <!-- ABOUT -->
 <section class="about" id="about">
     <div class="container">
-        <h2>Tentang Genetika Consulting</h2>
-        <p>
-            Genetika Consulting adalah perusahaan jasa yang bergerak di bidang pengembangan SDM, pendidikan,
-            training, genetic personality assessment dan parenting.
-        </p>
-
+        <h2>Tentang Kami</h2>
+        <p>Genetika Consulting bergerak di bidang pengembangan SDM, pendidikan, training, genetic personality assessment dan parenting.</p>
         <div class="accordion">
             <div class="acc-item">
-                <h3 class="acc-title">Visi</h3>
-                <p class="acc-content">Menjadi perusahaan jasa pengembangan SDM terbaik bagi instansi pemerintah dan swasta.</p>
+                <div class="acc-title">Visi</div>
+                <div class="acc-content">Menjadi perusahaan jasa pengembangan SDM terbaik.</div>
             </div>
-
             <div class="acc-item">
-                <h3 class="acc-title">Misi</h3>
-                <p class="acc-content">
-                    Memberikan pelayanan terbaik, menyediakan Genetic Personality Assessment,
-                    dan membantu instansi membentuk SDM profesional dan berkualitas.
-                </p>
+                <div class="acc-title">Misi</div>
+                <div class="acc-content">Memberikan pelayanan terbaik dan membentuk SDM profesional.</div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- SERVICES -->
-<section class="services" id="services">
+<section id="services">
     <div class="container">
         <h2>Layanan Kami</h2>
         <div class="grid">
@@ -108,24 +337,24 @@
 </section>
 
 <!-- GALLERY -->
-<section class="portfolio" id="portfolio">
+<section id="portfolio">
     <div class="container">
         <h2>Gallery Training</h2>
         <div class="gallery">
-            <img src="https://picsum.photos/300/200?1">
-            <img src="https://picsum.photos/300/200?2">
-            <img src="https://picsum.photos/300/200?3">
-            <img src="https://picsum.photos/300/200?4">
+            <img src="https://picsum.photos/400/300?1">
+            <img src="https://picsum.photos/400/300?2">
+            <img src="https://picsum.photos/400/300?3">
+            <img src="https://picsum.photos/400/300?4">
         </div>
     </div>
 </section>
 
 <!-- BLOG -->
-<section class="blog" id="blog">
+<section id="blog">
     <div class="container">
         <h2>Artikel Terbaru</h2>
         <div class="grid">
-            <div class="blog-card">Pentingnya Pengembangan SDM</div>
+            <div class="blog-card">Pengembangan SDM Modern</div>
             <div class="blog-card">Manfaat Genetic Personality</div>
             <div class="blog-card">Parenting di Era Digital</div>
         </div>
@@ -140,7 +369,7 @@
             <input type="text" placeholder="Nama">
             <input type="email" placeholder="Email">
             <input type="text" placeholder="Telepon">
-            <textarea placeholder="Pesan"></textarea>
+            <textarea rows="4" placeholder="Pesan"></textarea>
             <button class="btn-primary">Kirim Pesan</button>
         </form>
     </div>
@@ -150,6 +379,18 @@
     <p>© 2026 Genetika Consulting. All Rights Reserved.</p>
 </footer>
 
-<script src="script.js"></script>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const menu = document.querySelector('.nav-menu');
+hamburger.addEventListener('click',()=>menu.classList.toggle('active'));
+
+document.querySelectorAll('.acc-title').forEach(title=>{
+    title.addEventListener('click',()=>{
+        title.nextElementSibling.classList.toggle('show');
+    });
+});
+</script>
+
 </body>
-</html>
+    </html>
+                                        
